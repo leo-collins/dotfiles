@@ -15,3 +15,9 @@ compinit
 # Antidote plugin manager
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load
+
+# Environment variables
+export EDITOR=nvim
+
+# Starship prompt - keep at end of file
+eval "$(starship init zsh)"
