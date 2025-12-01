@@ -16,8 +16,14 @@ compinit
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # Environment variables
 export EDITOR=nvim
+
+# Aliases
+alias lz="lazygit"
 
 # Starship prompt - keep at end of file
 eval "$(starship init zsh)"
