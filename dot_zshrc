@@ -1,0 +1,17 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt autocd extendedglob nomatch
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/leo/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Antidote plugin manager
+source '/usr/share/zsh-antidote/antidote.zsh'
+antidote load
