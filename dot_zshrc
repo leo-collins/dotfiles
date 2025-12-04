@@ -1,16 +1,21 @@
-# Lines configured by zsh-newuser-install
+# History options
 HISTFILE=~/.histfile
-HISTSIZE=10000000
-SAVEHIST=10000000
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt HIST_EXPIRE_DUPS_FIRST  # Expire duplicates first when trimming history
+setopt HIST_FIND_NO_DUPS       # Do not display a line previously found
+setopt HIST_IGNORE_ALL_DUPS    # Don't record duplicate commands
+setopt HIST_SAVE_NO_DUPS       # Don't save duplicates to histfile
+setopt SHARE_HISTORY           # Share history between all sessions
+
+# Other optinos
 setopt autocd extendedglob nomatch
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/leo/.zshrc'
 
+# Compinit
+zstyle :compinstall filename '/home/leo/.zshrc'
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 # Antidote plugin manager
 source '/usr/share/zsh-antidote/antidote.zsh'
