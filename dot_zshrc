@@ -30,6 +30,7 @@ export PATH="/home/leo/.local/bin:$PATH"
 
 # Aliases
 alias lz="lazygit"
+alias cm="chezmoi"
 
 # Starship prompt - keep at end of file
 eval "$(starship init zsh)"
