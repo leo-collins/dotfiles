@@ -26,6 +26,7 @@ source <(fzf --zsh)
 
 # Environment variables
 export EDITOR=nvim
+export PATH="/home/leo/.local/bin:$PATH"
 
 # Aliases
 alias lz="lazygit"
