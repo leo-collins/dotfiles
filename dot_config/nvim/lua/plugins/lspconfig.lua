@@ -98,6 +98,7 @@ return {
 	}
 
 	local ensure_installed = {}
+	-- Remove lua_ls here because we manually add it at the end
 	for name, _ in pairs(servers) do
 	    if name ~= "lua_ls" then
 		table.insert(ensure_installed, name)
@@ -112,16 +113,17 @@ return {
 
 	require('mason-lspconfig').setup({
 	    automatic_installation = false,
-	    handlers = {
-		function(server_name)
-		    local server = servers[server_name] or {}
-		    server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-		    require('lspconfig')[server_name].setup(server)
-		end,
-	    },
 	})
 
-	-- manually set up lua_ls since we are doing it outside of mason
-	require("lspconfig").lua_ls.setup(servers.lua_ls)
+	-- register configs
+	for name, config in pairs(servers) do
+	    config.capabilities = vim.tbl_deep_extend(
+		'force', {}, capabilities, config.capabilities or {}
+	    )
+	    vim.lsp.config(name, config)
+	end
+
+	-- enable all servers
+	vim.lsp.enable(vim.tbl_keys(servers))
     end,
 }
